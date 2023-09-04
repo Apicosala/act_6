@@ -1,0 +1,31 @@
+<div class="card">
+  <figure class="image-sizing mt-4">
+    <img
+      src="{{ myUser.image }}"
+      class="img-fluid rounded"
+      alt="{{ myUser.first_name }}"
+    />
+  </figure>
+  <div class="card-body">
+    <h5 class="card-title d-flex justify-content-center">
+      {{ myUser.first_name }} {{ myUser.last_name }}
+    </h5>
+  </div>
+  <div class="d-flex justify-content-around">
+    <button
+      class="btn btn-dark m-1 btn-lg"
+      [routerLink]="['/users', myUser.id]"
+    >
+      <i class="fa-solid fa-eye"></i>
+    </button>
+    <button
+      class="btn btn-dark m-1 btn-lg"
+      [routerLink]="['/update', myUser.id]"
+    >
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button class="btn btn-danger m-1 btn-lg" (click)="deleteUser(myUser.id)">
+      <i class="fa-solid fa-trash-can"></i>
+    </button>
+  </div>
+</div>

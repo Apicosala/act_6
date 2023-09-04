@@ -1,0 +1,40 @@
+<article class="container p-3">
+  <div class="row p-3">
+    <div class="col-12 col-md-4 col-lg-3">
+      <img
+        class="img-fluid rounded"
+        src="{{ myUser?.image }}"
+        alt="{{ myUser?.first_name }}"
+      />
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+      <p class="fs-1 fw-bold">
+        {{ myUser?.first_name }} {{ myUser?.last_name }}
+      </p>
+      <div>
+        <span class="text-black-50">Username: </span>
+        <span class="fst-italic">{{ myUser?.username }}</span>
+      </div>
+      <div>
+        <span class="text-black-50">Email: </span>
+        <span class="fst-italic">{{ myUser?.email }}</span>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-start mt-5">
+        <button
+          class="btn btn-dark btn-lg"
+          [routerLink]="['/update', myUser?.id]"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button class="btn btn-danger btn-lg" (click)="deleteUser(myUser?.id)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-dark btn-lg" [routerLink]="['/users']">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</article>
